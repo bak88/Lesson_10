@@ -5,7 +5,7 @@ public class Main {
                 {"1", "2", "3", "2"},
                 {"5", "6", "5", "8"},
                 {"9", "10", "11", "12"},
-                {"13", "14", "15", "16"}
+                {"13", "14", "15", "12" }
         };
 
         handlingExceptionArray(matrix);
@@ -21,11 +21,11 @@ public class Main {
         try {
 
             if (matrix.length != 4) {
-                throw new MyArraySizeException();
+                throw new ArrayIndexOutOfBoundsException();
             }
             for (String[] row : matrix) {
                 if (row.length != 4) {
-                    throw new MyArraySizeException();
+                    throw new ArrayIndexOutOfBoundsException();
                 }
             }
 
@@ -39,8 +39,9 @@ public class Main {
             }
             System.out.println("Сумма матрицы = " + sum);
 
-        } catch (MyArraySizeException ex) {
-            ex.printStackTrace();
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            throw new MyArraySizeException();
+
         } catch (NumberFormatException ex) {
             throw new MyArrayDataException("Нечисловое значение в ячейке [" + rowIndex + "][" + colIndex + "] = " + cell);
         }
