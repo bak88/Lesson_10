@@ -43,7 +43,7 @@ public class Main {
             System.out.println("Сумма матрицы = " + sum);
 
         } catch (NumberFormatException ex) {
-            throw new MyArrayDataException("Нечисловое значение в ячейке [" + rowIndex + "][" + colIndex + "] = " + cell);
+            throw new MyArrayDataException(String.format("Нечисловое значение в ячейке [%d][%d] = %s", rowIndex, colIndex, cell));
         }
 
     }
